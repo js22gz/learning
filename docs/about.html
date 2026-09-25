@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About · Learning: claims under fire</title><link rel="stylesheet" href="assets/style.css"></head>
+<body><header><div class="wrap"><a class="brand" href="index.html">Learning: claims under fire</a><nav><a href="index.html">Home</a> <a href="candidates.html">Candidates</a> <a href="sources/index.html">Sources</a> <a href="ages/index.html">Ages</a> <a href="themes/index.html">Themes</a> <a href="direction/index.html">Direction</a> <a href="method.html">Method</a> <a href="inbox.html">Inbox</a> <a href="about.html">About</a></nav></div></header>
+<main class="wrap"><div class="prose"><h1>Learning: one evidence project</h1>
+<p>This folder merges two earlier projects: the <strong>Kunskapsbank</strong> (a Swedish library of research sources on learning) and the <strong>Learning graph</strong> (a few claims about learning that are deliberately attacked). It was built on 2026-09-25. The two old folders were copied, not moved, and are still there unchanged.</p>
+<h2>The two guiding questions</h2>
+<p>Everything here has to serve one or both of these:</p>
+<ol>
+<li><strong>Q1. What is optimal learning?</strong> (cognition, age and maturity, teaching, whatever the medium)</li>
+<li><strong>Q2. How do we achieve it when AI and screens are everywhere?</strong> (Swedish school in practice)</li>
+</ol>
+<h2>What a claim is</h2>
+<p>A claim is one plain-language sentence about learning that could turn out to be wrong. Each claim file (<code>claims/</code>) says:</p>
+<ul>
+<li><strong>Claim</strong>: the sentence itself</li>
+<li><strong>Status</strong>: <code>alive</code> (not yet damaged), <code>weakened</code> (survived attacks but had to be narrowed) or <code>killed</code> (no longer tenable)</li>
+<li><strong>Bounds</strong>: where the claim applies and where it does not</li>
+<li><strong>What would kill this</strong>: the result that would make us drop it</li>
+<li><strong>Serves / Ages</strong>: which guiding question, and which age groups</li>
+<li><strong>Edges</strong>: how it relates to other claims (for example "C2 depends-on C1")</li>
+</ul>
+<p>There are <strong>no numeric confidence scores</strong> anywhere in this project. Strength is shown only by status, bounds and the attack record.</p>
+<h2>How attacks work</h2>
+<p>Claims are kept under fire on purpose. An attack is one sentence that, if true, would change a claim's status. Each attack is logged in the claim's ledger (<code>ledgers/</code>) with a verdict:</p>
+<ul>
+<li><strong>survived</strong>: the attack did not change the claim</li>
+<li><strong>weakened</strong> (shown on the site as <strong>narrowed</strong>): the claim was rewritten narrower, or a bound was added</li>
+<li><strong>killed</strong>: the claim is dropped</li>
+</ul>
+<p>The roles are described in <code>method/ATTACKER.md</code> (proposes attacks), <code>method/CLERK.md</code> (routes each attack: apply, hold or reject) and the writer, who updates the files. Only a human approves new claims.</p>
+<h2>Sources and links</h2>
+<p><code>sources/</code> holds one folder per research source. Original files (PDFs, abstracts, metadata) are copied byte-for-byte from the Kunskapsbank. Each folder also has:</p>
+<ul>
+<li><code>NOTE.md</code>: the Swedish summary written for the Kunskapsbank, kept verbatim (it used to be copied into several folders; now there is one copy)</li>
+<li><code>LINKS.md</code>: how the source bears on claims: <strong>supports</strong>, <strong>limits</strong> (agrees, but only under narrower conditions) or <strong>challenges</strong> (points against the claim; a queued attack, not a verdict)</li>
+</ul>
+<p>All links are currently a <strong>first-pass draft, pending human review</strong>. They were generated from each note's "This claim dies if …" sentence and the ledgers, then reviewed once. <code>links.tsv</code> lists them all.</p>
+<h2>Candidates</h2>
+<p><code>candidates/</code> holds possible claims drawn from the Kunskapsbank. They are <strong>not approved</strong>. They have no ledger and are not in the brief. Only Jonatan can promote a candidate to a claim.</p>
+<h2>Inbox</h2>
+<p><code>inbox/</code> holds material that is not yet tied to any claim or candidate: sources without links, an uncatalogued source folder, and new sources waiting to be sorted. Being in the inbox says nothing about quality. It only means "not yet connected".</p>
+<h2>Other folders</h2>
+<ul>
+<li><code>brief.md</code>: the current position, only living claims, in plain language</li>
+<li><code>questions.md</code>, <code>edges.md</code>, <code>open-questions.md</code>: the guiding questions, claim-to-claim edges, and at most 5 open questions</li>
+<li><code>direction/</code>: the Kunskapsbank's three practice and policy texts (Swedish, verbatim)</li>
+<li><code>method/</code>: inclusion rules (Swedish, verbatim) and the attack-lane role files</li>
+<li><code>views/</code>: explains the generated age and theme pages</li>
+<li><code>reports/</code>: attack campaign reports</li>
+<li><code>archive/</code>: old index files, theme READMEs and changelogs, kept for history</li>
+<li><code>sources.tsv</code>: one row per source, with id, origin, ages and themes</li>
+<li><code>CHECKSUMS-originals.sha256</code>: checksums proving the original files are unchanged</li>
+</ul>
+<p>The public site is built from this folder by a single build script and published with GitHub Pages.</p></div></main>
+<footer><div class="wrap">Built from the merged Kunskapsbank and learning graph. No numeric confidence scores: strength is shown only by status, bounds and the attack record. Source notes are in Swedish and shown verbatim. All source-to-claim links are a first-pass draft pending human review.</div></footer>
+</body></html>
